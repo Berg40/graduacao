@@ -43,6 +43,12 @@ def cadastrar():
         )
     return redirect(url_for('index'))
 
+@app.route('/usuarios')
+def listar_usuarios():
+    usuarios = db_execute('SELECT * FROM usuarios')
+    return render_template('usuarios.html', usuarios=usuarios)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
